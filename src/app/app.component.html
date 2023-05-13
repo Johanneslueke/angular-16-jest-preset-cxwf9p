@@ -1,0 +1,38 @@
+<ix-map-navigation
+  hideContextMenu="true"
+  application-name="Web RTC"
+  navigation-title="Test Web RTC Technology"
+  style="position: unset;"
+  #sidebar
+>
+  <ix-menu #menu [enableToggleTheme]="true">
+    <ng-container *ngFor="let link of links">
+      <ng-container *ngIf="link.avatar; else std">
+        <ix-menu-avatar [image]="link.avatar">
+          <ix-menu-avatar-item
+            *ngFor="let sub of link.menu"
+            [label]="sub.name"
+            [icon]="sub.icon"
+          ></ix-menu-avatar-item>
+        </ix-menu-avatar>
+      </ng-container>
+      <ng-template #std>
+        <ix-menu-item [tabIcon]="link.icon" [routerLink]="link.path">
+          {{ link.name }}
+        </ix-menu-item>
+      </ng-template>
+    </ng-container>
+
+    <ix-menu-about>
+      <ix-menu-about-item label="Tab 1">Content 1</ix-menu-about-item>
+      <ix-menu-about-item label="Tab 2">Content 2</ix-menu-about-item>
+    </ix-menu-about>
+  </ix-menu>
+  <div slot="sidebar-content" style="min-height: 100vh;"> 
+    sdjsajdksajdlksajda
+  </div>
+
+  <div>
+    <ng-content> </ng-content>
+  </div>
+</ix-map-navigation>
